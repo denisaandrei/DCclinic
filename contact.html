@@ -32,7 +32,56 @@
 			<h1>LETS GET IN TOUCH</h1><br>
 			<a href="about.html" class="button button-accent "> Log In/Register</a>
     </div>
+	    <div id = "map" style = "width:640px; height:480px;"></div>
+      <script>
+
+        
+        function getJSONMarkers() {
+          const markers = [
+            {
+              name:  "DC clinic",
+              location: [53.350857, -6.262698]
+            },
+			{
+              name: "Vets4You",
+              location: [53.351581, -6.252903]
+            },
+            {
+              name: "South Veterinary Hospital",
+              location: [53.349641, -6.242657]
+            },
+			 {
+              name: "Cara's Clinic",
+              location: [53.354867, -6.237593]
+            }
 			
+            
+          ];
+          return markers;
+        }
+
+        function loadMap() {
+          // Initialize Google Maps
+          const mapOptions = {
+            center:new google.maps.LatLng(53.350857, -6.262698),
+            zoom: 14
+          }
+          const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+          // Load JSON Data
+          const clinicMarkers = getJSONMarkers();
+
+          // Initialize Google Markers
+          for(clinic of clinicMarkers) {
+            let marker = new google.maps.Marker({
+              map: map,
+              position: new google.maps.LatLng(clinic.location[0], clinic.location[1]),
+              title: clinic.name
+            })
+          }
+        }
+      </script>
+      <script src = "https://maps.googleapis.com/maps/api/js"></script>		
 	
      
 </body>

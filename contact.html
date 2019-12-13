@@ -13,8 +13,11 @@
 
 <!--- menu --->
 
-<body>
-<header>
+<body onload = "loadMap()">
+    <h2>Find Veterinary Hospitals near you!</h2>
+    <div id = "map" style = "width:640px; height:480px;"></div>
+	
+	<header>
 		<div class="wrapper">
 			<div class="logo"> 
 				<img src="logo.jpg" alt="DC Veterinary Clinic" class="logo" >
@@ -32,7 +35,6 @@
 			<h1>LETS GET IN TOUCH</h1><br>
 			<a href="about.html" class="button button-accent "> Log In/Register</a>
     </div>
-	    <div id = "map" style = "width:640px; height:480px;"></div>
       <script>
 
         
@@ -81,11 +83,28 @@
           }
         }
       </script>
-      <script src = "https://maps.googleapis.com/maps/api/js"></script>		
+      <script src = "https://maps.googleapis.com/maps/api/js"></script>
+
+	   	
 	
      
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

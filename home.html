@@ -29,10 +29,18 @@
 <!---- form ---->
 
 <!--- social --->
+<script type="text/javascript">
+	function writeName(){
+		var welcomeMsg = document.getElementById('welcome');
+		var name = document.getElementById('name');
+
+		welcomeMsg..innerHTML = "Welcome" +
+	}
+</script>
 
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="includes/signup.inc.php" method="post">
+		<form action="includes/signup.inc.php" method="post" onsubmit="return validation()">
 			<h1>Fill in Details</h1>
 			<div class="social-container">
 				<a href="https://www.facebook.com" class="social"><img src="fb.png" alt="facebook" width="50" height="50"></a>
@@ -42,10 +50,10 @@
 			<span>or contact us directly through social media</span>
 
 			<!--- register --->
-			<input type="text" name="owner" placeholder="Owner Name" />
-			<input type="text" name="pet" placeholder="Pet Name" />
-			<input type="text" name="type" placeholder="Pet Type" />
-			<a href="bookings.html" class="button button-accent">Take me To Bookings </a>
+			<input type="text" name="owner" placeholder="Owner Name" id="owner"/>
+			<input type="text" name="pet" placeholder="Pet Name" id="pet"/>
+			<input type="text" name="type" placeholder="Pet Species" />
+			<a href="bookings.html" class="button button-accent">Take Me To Bookings </a>
 		</form>
 	</div>
 
@@ -53,7 +61,7 @@
 <!--- social --->
 	<div class="form-container sign-in-container">
 		<form action="includes/login.inc.php" method="post">
-			<h1>Are You On Our Patients List?</h1>
+			<h1>Are You On Our Client List?</h1>
 			<div class="social-container">
 				<a href="https://www.facebook.com" class="social"><img src="fb.png" alt="facebook" width="50" height="50"></a>
 				<a href="https://ie.linkedin.com" class="social"><img src="li.png" alt="linkedin" width="50" height="50"></a>
@@ -61,10 +69,10 @@
 
 			<!--- existing acc--->	
 			</div>
-			<span>get in touch with us on our social medie, or enter your details down below!</span>
+			<span>get in touch with us on our social media, or enter your details down below to get onto our waiting list!</span>
 			<input type="text" name="owner" placeholder="Owner Name" />
 			<input type="text" name= "pet" placeholder="Pet Name" />
-			<a href="clientlist.html" class="button button-accent">Submit </a>
+			<a href="clientlist.html" class="button button-accent">Take Me To Client List</a>
 		</form>
 	</div>
 
@@ -73,27 +81,29 @@
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-				<h1>Are You One of Our Patients?</h1>
-				<p>Click Below to Get on Our List!</p>
-				<button class="ghost" id="signIn">Sign In</button>
+				<h1>Are You One of Our Clients?</h1>
+				<p>Click Below to Get on Our Waiting List & Access The Current Client List!</p>
+				<button class="ghost" id="signIn">Waiting List</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
 				<p>Have you Booked your Appointment with us Yet? Click Below to View our Schedule, Book an Appointment or make Changes!</p>
-				<button class="ghost" id="signUp">Appointments</button>
+				<button class="ghost" id="signUp">Bookings</button>
 			</div>
 		</div>
 	</div>
 </div>
 
-
 </form>
+
+
 </div>
 
 
 <script src="main.js"></script>
 
-<?php include 'index.php';?>
+
+
 </body>
 </html>
 

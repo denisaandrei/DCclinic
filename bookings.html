@@ -39,6 +39,7 @@
             padding: 2px 3px;
 			color:black;
         }
+		
     </style>
 </head>
 <body>
@@ -66,10 +67,11 @@
             {Customer: '1', Customer_Name: 'Sarah Smith', Category: 'Dog', Pet: 'Boni', Date: '20/12/19', Time:'1pm'},
             { Customer: '2', Customer_Name: 'John Doyle', Category: 'Cat', Pet: 'Meowsalot', Date: '28/12/19',  Time: '6:30pm'},
             { Customer: '3', Customer_Name: 'Jane Doe', Category: 'Fish', Pet: 'Tess', Date: '2/1/20', Time:'11am' },
-		{Customer: '4', Customer_Name: 'Mary Mack', Category: 'Dog', Pet: 'Blu', Date: '21/12/19', Time:'12pm'},
+			{Customer: '4', Customer_Name: 'Mary Mack', Category: 'Dog', Pet: 'Blu', Date: '21/12/19', Time:'12pm'},
             { Customer: '5', Customer_Name: 'Ciaran Hanlon', Category: 'Cat', Pet: 'Teddy', Date: '1/1/19',  Time: '4:30pm'},
             { Customer: '6', Customer_Name: 'Shannon Flood', Category: 'Fish', Pet: 'Daisy', Date: '20/12/20', Time:'5:00pm' }
         ]
+
         this.category = ['Dog', 'Cat', 'Fish', 'Bird'];
         this.col = [];
 
@@ -321,4 +323,60 @@
 
     crudApp.createTable();
 </script>
+ <title>DC Clinics</title>
+  </head>
+
+  <body onload = "loadMap()">
+    <h2>Find us and other Veterinary Hospitals near you!</h2>
+    <div id = "map" style = "width:1350px; height:480px;"></div>
+      <script>
+
+        
+        function getJSONMarkers() {
+          const markers = [
+            {
+              name:  "DC clinic",
+              location: [53.350857, -6.262698]
+            },
+			{
+              name: "Vets4You",
+              location: [53.351581, -6.252903]
+            },
+            {
+              name: "South Veterinary Hospital",
+              location: [53.349641, -6.242657]
+            },
+			 {
+              name: "Cara's Clinic",
+              location: [53.354867, -6.237593]
+            }
+			
+            
+          ];
+          return markers;
+        }
+
+        function loadMap() {
+          // Initialize Google Maps
+          const mapOptions = {
+            center:new google.maps.LatLng(53.350857, -6.262698),
+            zoom: 14
+          }
+          const map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+          // Load JSON Data
+          const clinicMarkers = getJSONMarkers();
+
+          // Initialize Google Markers
+          for(clinic of clinicMarkers) {
+            let marker = new google.maps.Marker({
+              map: map,
+              position: new google.maps.LatLng(clinic.location[0], clinic.location[1]),
+              title: clinic.name
+            })
+          }
+        }
+      </script>
+      <script src = "https://maps.googleapis.com/maps/api/js"></script>
+  </body>
 </html>
